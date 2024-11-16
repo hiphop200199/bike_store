@@ -1,0 +1,124 @@
+@use './value.scss';
+
+#layout {
+  #product-container {
+    position: relative;
+    min-height: 93dvh;
+    padding: 0 6rem;
+    background-color: value.$lightColor;
+    #class-filters {
+      display: flex;
+      justify-content: flex-end;
+      * {
+        background: none;
+        border: none;
+        margin: 10px;
+        cursor: pointer;
+        color: value.$darkBrown;
+      }
+    }
+    h1 {
+      font-size: 70px;
+      text-align: center;
+      color: value.$darkBrown;
+      text-wrap: pretty;
+    }
+    #ambiguous-search {
+      display: block;
+      margin: 20px auto;
+      outline: none;
+      padding: 5px;
+      border: 3px solid value.$darkBrown;
+      background-color: transparent;
+      &:focus {
+        border-color: value.$lightBrown;
+      }
+    }
+    .product-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 5px;
+        width: clamp(260px, 90%, 340px);
+        height: 400px;
+        a {
+          height: 80%;
+          overflow-y: hidden;
+          .product-cover {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .pagination {
+      padding-block: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        width: 2rem;
+        height: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        &.active {
+          background-color: value.$darkBrown;
+          color: white;
+        }
+        &:disabled {
+          cursor: not-allowed;
+          color: grey;
+        }
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #layout {
+    #product-container {
+      padding: 0 0.5rem;
+      #product-box {
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  #layout {
+    #product-container {
+      padding: 0 1rem;
+      #product-box {
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #layout {
+    #product-container {
+      padding: 0 1.5rem;
+      #product-box {
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1440px) {
+  #layout {
+    #product-container {
+      padding: 0 3rem;
+      #product-box {
+      }
+    }
+  }
+}

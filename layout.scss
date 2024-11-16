@@ -1,0 +1,184 @@
+@use './value.scss';
+
+#layout {
+  position: relative;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7dvh;
+    padding: 5px 6rem;
+    background-color: value.$lightColor;
+    a[title='購物車'] {
+      text-decoration: none;
+      #cart-amount {
+        font-weight: 500;
+        color: black;
+        font-size: 16px;
+        opacity: 0;
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+    img {
+      height: 5dvh;
+    }
+    nav {
+      display: flex;
+      section * {
+        margin-inline-end: 2px;
+      }
+    }
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    #aside-menu-btn {
+      position: relative; //讓z-index起作用
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      overflow-y: hidden; //避免旋轉時短暫跑出下拉卷軸
+      z-index: 1;
+      #aside-menu-pic {
+        transition: value.$transitionTime;
+        &.rotated {
+          rotate: 0.25turn;
+        }
+      }
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 5dvh;
+    padding: 10px 6rem;
+    background-color: value.$darkBrown;
+    img,
+    p {
+      filter: invert(1);
+    }
+    img {
+      height: 5dvh;
+    }
+    #copyright {
+      text-align: center;
+    }
+  }
+  aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    right: 0;
+    top: 7dvh;
+    height: 100dvh;
+    width: 0;
+    opacity: 0;
+    background-color: value.$lightColor;
+    transition: value.$transitionTime;
+    z-index: 1;
+    &.active {
+      width: 100vw;
+      opacity: 1;
+    }
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    * {
+      margin: 10px;
+      text-align: end;
+      white-space: nowrap;
+      text-decoration: none;
+      color: value.$darkBrown;
+    }
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+    }
+  }
+  #to-top {
+    position: fixed;
+    right: 2vw;
+    bottom: 2dvh;
+    // border-radius: value.$radius;
+    background-color: value.$lightBrown;
+    border: none;
+    width: 50px;
+    height: 50px;
+    overflow-y: hidden;
+    padding: 5px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      filter: invert(1);
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  #layout {
+    header {
+      padding: 5px 0.5rem;
+      img[alt]:not([alt='logo'], [alt='aside-menu-pic']) {
+        //屬性不等於...的寫法
+        display: none;
+      }
+      #aside-menu-btn {
+        display: inline;
+      }
+    }
+    footer {
+      padding: 0;
+      flex-direction: column;
+      :not(img) {
+        margin: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  #layout {
+    header {
+      padding: 5px 1rem;
+    }
+    footer {
+      padding: 0;
+      flex-direction: column;
+      :not(img) {
+        margin: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #layout {
+    header {
+      padding: 5px 1.5rem;
+    }
+    footer {
+      padding: 10px 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1440px) {
+  #layout {
+    header {
+      padding: 5px 3rem;
+    }
+    footer {
+      padding: 10px 3rem;
+    }
+  }
+}

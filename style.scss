@@ -1,0 +1,79 @@
+@use './layout.scss';
+@use './homepage.scss';
+@use './login.scss';
+@use './register.scss';
+@use './forgot-password.scss';
+@use './password-reset.scss';
+@use './list.scss';
+@use './cart.scss';
+@use './member.scss';
+@use './detail.scss';
+@use './order.scss';
+@use './order-detail.scss';
+@use './value.scss';
+@import url('https://fonts.googleapis.com/css2?family=Uchen&display=swap');
+#005792
+#53CDE2
+#D1F4FA
+#EDF9FC
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  font-size: value.$largeFontSize;
+  font-family: "Uchen", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#loading {
+  position: relative;
+  top: 50px;
+  margin-bottom: 100px;
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: visible;
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: value.$lightColor;
+    z-index: 2;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    left: -10px;
+    top: -10px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background-image: linear-gradient(0deg, value.$lightColor 40%, value.$darkBrown);
+    animation: rot 1.5s linear infinite;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #loading {
+    left: calc(50% - 75px);
+    width: 150px;
+    height: 150px;
+    &::before {
+      width: 150px;
+      height: 150px;
+    }
+    &::after {
+      width: 170px;
+      height: 170px;
+    }
+  }
+}
