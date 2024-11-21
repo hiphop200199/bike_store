@@ -1,11 +1,7 @@
 $(function () {
   //ready function
 
-  $("#login").on("click", (e) => handleDialog(e, "login", "open"));
-
-  $("#close-login-modal").on("click", (e) => handleDialog(e, "login", "close"));
-
-  $("#login-form").on("submit", function (e) {
+  /* $("#login-form").on("submit", function (e) {
     e.preventDefault();
     $("#login-message").text("loading...");
     let formInputs = {
@@ -24,45 +20,47 @@ $(function () {
       success: function (response) {
         $("#login-message").text(response.message);
         console.log(response);
-        if(response['redirect']){
+        if (response["redirect"]) {
           setTimeout(() => {
             location.href =
-            location.origin + "/document_management_system/" + response.redirect;
-        }, 1000);
+              location.origin +
+              "/document_management_system/" +
+              response.redirect;
+          }, 1000);
         }
-       
       },
       error: function (error) {
         $("#login-message").text("");
         console.log(error);
       },
     });
-  });
+  }); */
+  let sliderIndex = 0;
+  let sliderImg = document.querySelectorAll("#image-slider img");
+  setInterval(() => {
+    sliderImg[sliderIndex].style.transform = "translatex(-10%)";
+    sliderImg[sliderIndex].style.opacity = "0";
+    oldImgFadeout();
+  }, 5000);
 
-  function handleDialog(e, type, dir) {
-    e.preventDefault();
-    let object;
-    switch (type) {
-      case "login":
-        object = "#login-dialog";
-        break;
-      case "alert":
-        object = "#alert-dialog";
-        break;
-      case "upload":
-        object = "#upload-dialog";
-        break;
-      case "delete":
-        object = "#delete-dialog";
-        break;
-    }
+  
 
-    if (dir == "open") {
-      document.querySelector(object).showModal();
-      document.querySelector(object).classList.add("open");
-    } else {
-      document.querySelector(object).classList.remove("open");
-      setTimeout(() => document.querySelector(object).close(), 700);
-    }
+  
+  function oldImgFadeout() {
+    setTimeout(function () {
+      sliderImg[sliderIndex].style.display = "none";
+      sliderIndex == sliderImg.length - 1 ? (sliderIndex = 0) : sliderIndex++;
+      sliderImg[sliderIndex].style.display = "inline";
+      sliderImg[sliderIndex].style.transform = "translatex(10%)";
+      sliderImg[sliderIndex].style.opacity = "0";
+      newImgShowup();
+    }, 700);
+  }
+  
+  function newImgShowup() {
+    setTimeout(function () {
+      sliderImg[sliderIndex].style.transform = "none";
+      sliderImg[sliderIndex].style.opacity = "1";
+    }, 300);
   }
 });
