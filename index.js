@@ -41,7 +41,7 @@ $(function () {
     sliderImg[sliderIndex].style.transform = "translatex(-10%)";
     sliderImg[sliderIndex].style.opacity = "0";
     oldImgFadeout();
-  }, 5000);
+  }, 10000);
 
   
 

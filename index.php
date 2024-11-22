@@ -16,15 +16,15 @@ require_once "./components/head.php";
    <h1 class="title">New Arrivals</h1>
    <section class="cards-container">
    <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
+      <a href="/bike_store/views/products.php?item=25段變速車"><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
+      <a href="/bike_store/views/products.php?item=25段變速車">
          <p class="name">Lorem, ipsum.</p>
          <p class="price">NT$ 115</p>
       </a>
    </div>
    <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
+      <a href="/bike_store/views/products.php?item=25段變速車"><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
+      <a href="/bike_store/views/products.php?item=25段變速車">
          <p class="name">Lorem, ipsum.</p>
          <p class="price">NT$ 115</p>
       </a>
@@ -145,7 +145,7 @@ require_once "./components/head.php";
          <div id="cards">
             <div
                class="card">
-               <a>
+               <a href="/bike_store/views/products.php?item=25段變速車">
                   <img class="cover" alt="" src="/bike_store/assets/bicycle-1834265_1280.jpg" />
                </a>
                <p class="title">Lorem, ipsum.</p>
@@ -153,7 +153,7 @@ require_once "./components/head.php";
             </div>
             <div
                class="card">
-               <a>
+               <a href="/bike_store/views/products.php?item=25段變速車">
                   <img class="cover" alt="" src="/bike_store/assets/bicycle-1834265_1280.jpg" />
                </a>
                <p class="title">Lorem, ipsum.</p>
@@ -161,7 +161,7 @@ require_once "./components/head.php";
             </div>
             <div
                class="card">
-               <a>
+               <a href="/bike_store/views/products.php?item=25段變速車">
                   <img class="cover" alt="" src="/bike_store/assets/bicycle-1834265_1280.jpg" />
                </a>
                <p class="title">Lorem, ipsum.</p>
@@ -169,7 +169,7 @@ require_once "./components/head.php";
             </div>
             <div
                class="card">
-               <a>
+               <a href="/bike_store/views/products.php?item=25段變速車">
                   <img class="cover" alt="" src="/bike_store/assets/bicycle-1834265_1280.jpg" />
                </a>
                <p class="title">Lorem, ipsum.</p>

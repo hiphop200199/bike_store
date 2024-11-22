@@ -86,6 +86,7 @@
 }
 #layout #image-slider img {
   width: 100%;
+  height: 95dvh;
   -o-object-fit: cover;
      object-fit: cover;
   display: none;
@@ -98,6 +99,89 @@
 }
 #layout .title {
   text-align: center;
+}
+#layout #breadcrumb {
+  margin: 8px;
+  display: flex;
+}
+#layout #breadcrumb * {
+  margin-inline: 2px;
+  text-decoration: none;
+  color: black;
+}
+#layout #collection-layout {
+  display: flex;
+  padding: 8px;
+}
+#layout #collection-layout #order-and-type {
+  display: flex;
+  flex-direction: column;
+}
+#layout #collection-layout #order-and-type select {
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 3px 8px;
+}
+#layout #collection-layout #order-and-type select:focus {
+  border: 2px solid #005792;
+}
+#layout #collection-layout #order-and-type a {
+  text-decoration: none;
+  color: black;
+}
+#layout #products-layout {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3px 8px;
+}
+#layout #products-layout img {
+  width: 450px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#layout #products-layout #text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#layout #products-layout #text * {
+  margin-block: 3px;
+}
+#layout #products-layout #text #amount input {
+  padding: 3px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+#layout #products-layout #text #amount input:focus {
+  border: 2px solid #005792;
+}
+#layout #products-layout #text #buttons #purchase-directly {
+  background-color: #005792;
+  color: white;
+  font-size: 20px;
+  padding: 3px 8px;
+  border: none;
+  cursor: pointer;
+}
+#layout #products-layout #text #buttons #purchase-directly:hover {
+  filter: brightness(1.1);
+}
+#layout #products-layout #text #buttons #add-cart {
+  background-color: #53cde2;
+  color: white;
+  font-size: 20px;
+  padding: 3px 8px;
+  border: none;
+  cursor: pointer;
+}
+#layout #products-layout #text #buttons #add-cart:hover {
+  filter: brightness(1.1);
+}
+#layout #introduction {
+  font-size: 18px;
+  width: 65ch;
+  padding: 3px 8px;
 }
 #layout .cards-container {
   display: grid;
@@ -211,33 +295,94 @@
   width: 2rem;
   filter: invert(1);
 }
-#layout article {
+#layout main {
   padding: 20px 80px;
   min-height: 85dvh;
 }
-#layout article div {
+#layout main div {
   background-color: #d1f4fa;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#layout article div h1 {
+#layout main div h1 {
   color: #005792;
 }
-#layout article div p {
+#layout main div p {
   line-height: 1.5;
   width: 65ch;
   font-size: 18px;
 }
-#layout article #contact {
+#layout main #contact {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   height: 85dvh;
 }
-#layout article #contact * {
+#layout main #contact * {
   font-size: 20px;
+}
+#layout main .auth-related {
+  background-color: #d1f4fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80dvh;
+  justify-content: center;
+}
+#layout main .auth-related * {
+  margin-block: 3px;
+}
+#layout main .auth-related #mode-switch {
+  display: flex;
+  background-color: #53cde2;
+  border-radius: 16px;
+  padding: 3px 8px;
+}
+#layout main .auth-related #mode-switch input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+#layout main .auth-related #mode-switch #register:checked + .register {
+  background-color: white;
+}
+#layout main .auth-related #mode-switch #login:checked + .login {
+  background-color: white;
+}
+#layout main .auth-related #mode-switch .register, #layout main .auth-related #mode-switch .login {
+  display: block;
+  cursor: pointer;
+  border-radius: 13px;
+  padding: 3px 8px;
+}
+#layout main .auth-related .message {
+  font-size: 18px;
+}
+#layout main .auth-related input[type=text], #layout main .auth-related input[type=tel], #layout main .auth-related input[type=password], #layout main .auth-related input[type=email] {
+  font-size: 20px;
+  padding: 3px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+#layout main .auth-related input[type=text]:focus, #layout main .auth-related input[type=tel]:focus, #layout main .auth-related input[type=password]:focus, #layout main .auth-related input[type=email]:focus {
+  border: 2px solid #005792;
+}
+#layout main .auth-related #buttons {
+  display: flex;
+  flex-direction: row;
+}
+#layout main .auth-related #buttons button {
+  font-size: 20px;
+  background-color: #005792;
+  color: white;
+  border: 1px solid #ccc;
+  padding: 3px 8px;
 }
 #layout .checkout {
   display: flex;
@@ -337,6 +482,20 @@
   filter: invert(1);
 }
 
+:root:has(#login:checked) .register-related {
+  display: none;
+}
+:root:has(#login:checked) .login-related {
+  display: inline;
+}
+
+:root:has(#register:checked) .register-related {
+  display: inline;
+}
+:root:has(#register:checked) .login-related {
+  display: none;
+}
+
 @media screen and (max-width: 576px) {
   #layout header {
     padding: 5px 0.5rem;
@@ -372,6 +531,25 @@
     width: 230px;
     left: calc(50% - 115px);
   }
+  #layout #collection-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  #layout #collection-layout #order-and-type h2 {
+    text-align: center;
+  }
+  #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
+    display: none;
+  }
+  #layout #products-layout {
+    flex-direction: column;
+  }
+  #layout #products-layout img {
+    align-self: center;
+  }
+  #layout #products-layout #text {
+    align-items: flex-start;
+  }
   #layout footer {
     padding: 0;
     flex-direction: column;
@@ -401,6 +579,25 @@
     width: 460px;
     left: calc(50% - 230px);
   }
+  #layout #collection-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  #layout #collection-layout #order-and-type h2 {
+    text-align: center;
+  }
+  #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
+    display: none;
+  }
+  #layout #products-layout {
+    flex-direction: column;
+  }
+  #layout #products-layout img {
+    align-self: center;
+  }
+  #layout #products-layout #text {
+    align-items: flex-start;
+  }
   #layout footer {
     padding: 0;
     flex-direction: column;
@@ -419,6 +616,25 @@
   #layout #popular-items-slider #slider {
     width: 460px;
     left: calc(50% - 230px);
+  }
+  #layout #collection-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  #layout #collection-layout #order-and-type h2 {
+    text-align: center;
+  }
+  #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
+    display: none;
+  }
+  #layout #products-layout {
+    flex-direction: column;
+  }
+  #layout #products-layout img {
+    align-self: center;
+  }
+  #layout #products-layout #text {
+    align-items: flex-start;
   }
   #layout footer {
     padding: 10px 1.5rem;

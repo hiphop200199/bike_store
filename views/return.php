@@ -6,7 +6,7 @@ require_once "../components/head.php";
 ?>
 <div id="layout">
    <?php require_once '../components/header.php'; ?>
-   <article>
+   <main>
    <h4>退換貨須知：</h4>
    <ul>
     <li>瑕疵問題只接受換同款同尺寸。腳踏車因個人喜好問題，拆封恕不接受退換貨。</li>
@@ -41,7 +41,7 @@ require_once "../components/head.php";
     <li>內文 : 附上銀行+銀行代碼+銀行帳號</li>
 </ul>
 <p>我們收到郵件後，約14天內將會退至您的指定帳戶內，此服務無須手續費。</p>
-   </article>
+   </main>
   
 
 

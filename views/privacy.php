@@ -6,7 +6,7 @@ require_once "../components/head.php";
 ?>
 <div id="layout">
     <?php require_once '../components/header.php'; ?>
-    <article>  <p>非常歡迎您光臨「Bicycle Store」（以下簡稱本網站），為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：</p>
+    <main>  <p>非常歡迎您光臨「Bicycle Store」（以下簡稱本網站），為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：</p>
 
 
 
@@ -51,7 +51,7 @@ require_once "../components/head.php";
 <p>為了提供您最佳的服務，本網站會在您的電腦中放置並取用我們的 Cookie，若您不願接受 Cookie 的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕 Cookie 的寫入，但可能會導致網站某些功能無法正常執行 。</p>
 <p>七、隱私權保護政策之修正</p>
 <p>本網站隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上。</p>
-</article>
+</main>
   
 
 

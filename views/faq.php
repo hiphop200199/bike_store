@@ -7,7 +7,7 @@ require_once "../components/head.php";
 <div id="layout">
     <?php require_once '../components/header.php'; ?>
 
-  <article>
+  <main>
   <h1>訂單</h1>
 <p>Ｑ：下單後可以改訂單嗎？</p>
 <p>Ａ：可以。如需改訂單內容，請洽客服人員。</p>
@@ -72,7 +72,7 @@ require_once "../components/head.php";
 
 
    
-  </article>
+  </main>
 
 
    

@@ -7,7 +7,7 @@ require_once "../components/head.php";
 <div id="layout">
     <?php require_once '../components/header.php'; ?>
 
-    <article>
+    <main>
         <section id="contact">  <p> 客服時間</p>
         <p>
             週一至週五 10:00-17:00</p>
@@ -30,7 +30,7 @@ require_once "../components/head.php";
 
 
 
-    </article>
+    </main>
 
 
 

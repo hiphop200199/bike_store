@@ -7,7 +7,7 @@ require_once "../components/head.php";
 <div id="layout">
     <?php require_once '../components/header.php'; ?>
 
-  <article>
+  <main>
     <div> <h1>About Bicycle Store </h1>
     <h2>腳踏車最棒的選擇</h2>
     <p>2024，Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta rerum nihil tempore quaerat at nostrum provident aperiam, deserunt ducimus officiis quisquam consequuntur aut neque fugit corrupti necessitatibus. Perspiciatis, asperiores numquam!
@@ -18,7 +18,7 @@ require_once "../components/head.php";
     Repellat iure delectus magnam eius fuga nesciunt eveniet dolore necessitatibus? Deserunt, sapiente non! Labore tenetur, laudantium exercitationem rerum, obcaecati repellat sequi, voluptate quibusdam nostrum consequatur reprehenderit eius temporibus maiores sunt.
     !</p></div>
    
-  </article>
+  </main>
 
 
    
