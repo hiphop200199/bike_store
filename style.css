@@ -462,7 +462,6 @@ aside {
   right: 0;
   top: 0;
   min-height: 100dvh;
-  padding-inline: 15px;
   width: 0;
   background-color: white;
   opacity: 0;
@@ -537,6 +536,19 @@ aside #cart-content .item .amount-price label input[type=number] {
   padding: 3px 8px;
 }
 aside #cart-content .item .amount-price span {
+  font-size: 20px;
+  font-weight: 700;
+}
+aside #cart-content #total-price {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-block: 30px;
+}
+aside #cart-content #total-price span {
+  width: 104.438px;
+}
+aside #cart-content #total-price #total-price-number {
   font-size: 20px;
   font-weight: 700;
 }

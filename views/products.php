@@ -11,11 +11,11 @@ require_once "../components/head.php";
    </section>
    
   <div id="products-layout">
-   <img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt="">
+   <img src="/bike_store/assets/bicycle-1834265_1280.jpg" id="product-img" alt="">
    <section id="text">
       <h1>商品名稱</h1>
-      <p>NT$ 115</p>
-      <label for="" id="amount">數量：<input type="number" name="" id="" min="1"></label>
+      <p>NT$ <strong>115</strong></p>
+      <label for="" id="amount">數量：<input type="number"  value="1"  min="1"></label>
       <section id="buttons">
          <button id="purchase-directly">立即購買</button>
          <button id="add-cart">加入購物車</button>
@@ -67,5 +67,6 @@ require_once "../components/head.php";
 </div>
 
 
-<script src="index.js"></script>
+<script src="../index.js"></script>
+<script src="../cart.js"></script>
 <?php require_once '../components/foot.php'; ?>

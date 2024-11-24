@@ -15,7 +15,6 @@
     <!-- <button>
     <img src="/bike_store/assets/log-out.png" alt="" id="logout" title="登出" />
   </button> -->
-    <!-- <a href="/bike_store/views/login" title="登入"><img src="/bike_store/assets/log-in.png" alt="" id="login" /></a> -->
     <button title="購物車" id="cart">
       <img src="/bike_store/assets/shopping-cart.png" alt="cart"  />
     </button>

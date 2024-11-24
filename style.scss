@@ -484,7 +484,6 @@ aside {
   right: 0;
   top: 0;
   min-height: 100dvh;
-  padding-inline:15px;
   width: 0;
   background-color: white;
   opacity: 0;
@@ -558,6 +557,19 @@ aside {
           font-weight: 700;
         }
       }
+    }
+    #total-price{
+      display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-block: 30px;
+        span{
+          width: 104.438px;
+        }
+        #total-price-number{
+          font-size: 20px;
+          font-weight: 700;
+        }
     }
     #keep-shopping,#go-checkout{
       text-decoration: none;

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('./parts/db.php');
+require_once '../database/db.php';
 date_default_timezone_set('Asia/Taipei');//設定預設時區
 class Auth
 {
@@ -25,12 +25,6 @@ class Auth
             case 'logout':
                 $this->logout();
                 break;
-            case 'forgot-password':
-                $this->forgotpassword($data);
-                break;
-            case 'reset-password':
-                $this->resetpassword($data);
-                break;    
         }
     }
     private function login($data)
@@ -49,7 +43,7 @@ class Auth
             echo json_encode(['message' => '密碼格式不正確.']);
             exit;
         }
-        $check_email_sql = 'select name,email,password,identity,delete_flag from users where email = ? ';
+        $check_email_sql = 'select name,email,password,delete_flag from users where email = ? ';
         $statement = $this->conn->prepare($check_email_sql);
         $statement->execute([$email]);
         if ($statement->rowCount() > 0) {
@@ -66,8 +60,7 @@ class Auth
             }else{
                 session_regenerate_id(); //更新sessionID
                 $_SESSION['user'] = $row['name'];
-                $_SESSION['identity'] = $row['identity'];
-                echo json_encode(['message' => 'login success.', 'redirect' => 'dashboard.php']);
+                echo json_encode(['message' => 'login success.', 'redirect' => 'index.php']);
                 exit;
             }
            
@@ -90,6 +83,8 @@ class Auth
         $name = strip_tags(trim($data['name']));
         $email = $data['email'];
         $password = $data['password'];
+        $phone = strip_tags(trim($data['phone']));
+        $address = strip_tags(trim($data['address']));
 
         if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
             session_regenerate_id();//參數true會刪掉現有的session資料，會導致無法辨識session固定攻擊以及程序競爭問題(程序競爭為同時多道程序搶著使用某一資源，而沒有等當下的session處理完，需要用lock方式避免競爭問題)
@@ -111,77 +106,15 @@ class Auth
         } else {
             $hashed_password = password_hash(strip_tags(trim($password)), PASSWORD_DEFAULT);
             $time = date("Y-m-d H:i:s");  
-            $create_user_sql = 'insert into users values (?,?,?,?,?,?,?,?)';
+            $create_user_sql = 'insert into users values (?,?,?,?,?,?,?,?,?)';
             $statement = $this->conn->prepare($create_user_sql);
-            $statement->execute([null,$name,$email,$hashed_password,'normal',0,$time,$time]);
+            $statement->execute([null,$name,$email,$hashed_password,$phone,$address,$time,$time,0]);
             if ($statement->rowCount() > 0) {
                 session_regenerate_id(); //更新sessionID
                 $_SESSION['user'] = $name;
-                $_SESSION['identity'] = 'normal';
-                echo json_encode(['message' => 'register success.', 'redirect' => 'dashboard.php']);
+                echo json_encode(['message' => 'register success.', 'redirect' => 'index.php']);
                 exit;
             }
-        }
-
-
-       
-      
-        
-        
-    }
-    private function forgotpassword($data)
-    {
-        header('Content-Type:application/json'); //回傳json格式
-        $email = $data['email'];
-        if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-            session_regenerate_id();//參數true會刪掉現有的session資料，會導致無法辨識session固定攻擊以及程序競爭問題(程序競爭為同時多道程序搶著使用某一資源，而沒有等當下的session處理完，需要用lock方式避免競爭問題)
-            echo json_encode(['message' => 'email格式不正確.']);
-            exit;
-        }
-        $check_email_sql = 'select name,email,identity,delete_flag from users where email = ? ';
-        $statement = $this->conn->prepare($check_email_sql);
-        $statement->execute([$email]);
-        if ($statement->rowCount() > 0) {
-            session_regenerate_id();
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
-            if($row['delete_flag']==1){
-                session_regenerate_id();
-                echo json_encode(['message'=>'此帳號已無效']);
-                exit;
-            }else{
-                session_regenerate_id(); //更新sessionID
-                $_SESSION['user'] = $row['name'];
-                $_SESSION['identity'] = $row['identity'];
-                $_SESSION['email'] = $row['email'];
-                echo json_encode(['message' => 'please wait.', 'redirect' => 'reset-password.php']);
-                exit;
-            }
-           
-        } else {
-            session_regenerate_id();
-            echo json_encode(['message' => '無此帳號，需註冊.']);
-            exit;
-        }
-    }
-    private function resetpassword($data)
-    {
-        header('Content-Type:application/json'); //回傳json格式
-        $password = $data['password'];
-        if(!preg_match('/[A-Z]{1,}[a-z]{1,}[0-9]{1,}\W{1,}/',strip_tags(trim($password)))){
-            session_regenerate_id();
-            echo json_encode(['message' => '密碼格式不正確.']);
-            exit;
-        }
-        $hashed_password = password_hash(strip_tags(trim($password)), PASSWORD_DEFAULT);
-        $time = date("Y-m-d H:i:s");     
-        $new_password_sql = 'update users set password = ?,updated_at = ? where email = ?';
-        $statement = $this->conn->prepare($new_password_sql);
-        $statement->execute([$hashed_password,$time, $_SESSION['email']]);
-        if ($statement->rowCount() > 0) {
-            session_regenerate_id();
-            unset($_SESSION['email']);
-            echo json_encode(['message' => 'reset password success.', 'redirect' => 'dashboard.php']);
-            exit;
         }
     }
 }
