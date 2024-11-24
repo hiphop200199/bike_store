@@ -1,4 +1,5 @@
 <aside id="side-menu">
+<button id="close-menu">✖</button>
 <a href="/bike_store/views/collection.php?type=New Arrivals">New Arrivals</a>
     <a href="/bike_store/views/collection.php?type=熱門商品">熱門商品</a>
     <a href="/bike_store/views/collection.php?type=QIANT">QIANT</a>
