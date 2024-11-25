@@ -50,91 +50,6 @@ require_once "./components/head.php";
          <p class="price">NT$ 115</p>
       </a>
    </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   <div class="card">
-      <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-      <a href="">
-         <p class="name">Lorem, ipsum.</p>
-         <p class="price">NT$ 115</p>
-      </a>
-   </div>
-   
    </section>
    <h1 class="title">熱門商品</h1>
    <div id="popular-items-slider">
@@ -221,5 +136,7 @@ require_once "./components/head.php";
 </div>
 <?php require_once './components/side-menu.php'; ?>
 <?php require_once './components/side-cart.php'; ?>
-<script src="index.js"></script>
+<script src="auto-slider.js"></script>
+<script src="layout.js"></script>
+<script src="cart.js"></script>
 <?php require_once './components/foot.php'; ?>

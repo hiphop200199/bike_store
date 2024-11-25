@@ -212,6 +212,23 @@
 #layout .cards-container .card a p.price {
   font-weight: 700;
 }
+#layout .pagination {
+  display: flex;
+  justify-content: space-evenly;
+}
+#layout .pagination a {
+  text-decoration: none;
+  color: #005792;
+  font-size: 2rem;
+}
+#layout .pagination a.active {
+  background-color: #005792;
+  color: white;
+}
+#layout .pagination a.disable {
+  pointer-events: none;
+  color: #53cde2;
+}
 #layout #popular-items-slider {
   position: relative;
   height: 50dvh;
@@ -461,7 +478,7 @@ aside {
   position: fixed;
   right: 0;
   top: 0;
-  min-height: 100dvh;
+  height: 100dvh;
   width: 0;
   background-color: white;
   opacity: 0;
@@ -472,6 +489,7 @@ aside {
 aside.active {
   width: 400px;
   opacity: 1;
+  overflow-y: auto;
 }
 aside #cart-content {
   display: flex;
@@ -496,6 +514,7 @@ aside #cart-content .item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-block-end: 15px;
 }
 aside #cart-content .item .item-detail {
   display: flex;
@@ -512,6 +531,10 @@ aside #cart-content .item .item-detail img {
 aside #cart-content .item .item-detail .text {
   display: flex;
   flex-direction: column;
+  width: 50%;
+}
+aside #cart-content .item .item-detail .text h4 {
+  white-space: normal;
 }
 aside #cart-content .item .item-detail .text .remove-item {
   width: -moz-fit-content;
@@ -540,7 +563,7 @@ aside #cart-content .item .amount-price span {
   font-weight: 700;
 }
 aside #cart-content #total-price {
-  display: flex;
+  display: none;
   justify-content: space-around;
   width: 100%;
   margin-block: 30px;
@@ -560,6 +583,8 @@ aside #cart-content #keep-shopping, aside #cart-content #go-checkout {
   font-size: 18px;
   padding: 3px 8px;
   border: none;
+  margin-block: 15px;
+  cursor: pointer;
 }
 aside #cart-content #go-checkout {
   display: none;
@@ -637,6 +662,9 @@ aside a {
   #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
     display: none;
   }
+  #layout .pagination a {
+    font-size: 1rem;
+  }
   #layout #products-layout {
     flex-direction: column;
   }
@@ -685,6 +713,9 @@ aside a {
   #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
     display: none;
   }
+  #layout .pagination a {
+    font-size: 1.2rem;
+  }
   #layout #products-layout {
     flex-direction: column;
   }
@@ -722,6 +753,9 @@ aside a {
   }
   #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
     display: none;
+  }
+  #layout .pagination a {
+    font-size: 1.5rem;
   }
   #layout #products-layout {
     flex-direction: column;

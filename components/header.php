@@ -1,14 +1,14 @@
 <header>
   <a href="/bike_store"><img src="/bike_store/assets/bicycle-rider.png" alt="logo" /></a>
   <section id="filter-link">
-  <a href="/bike_store/views/collection.php?type=New Arrivals">New Arrivals</a>
-    <a href="/bike_store/views/collection.php?type=熱門商品">熱門商品</a>
-    <a href="/bike_store/views/collection.php?type=QIANT">QIANT</a>
-    <a href="/bike_store/views/collection.php?type=VMX">VMX</a>
-    <a href="/bike_store/views/collection.php?type=城市車">城市車</a>
-    <a href="/bike_store/views/collection.php?type=摺疊車">摺疊車</a>
-    <a href="/bike_store/views/collection.php?type=越野車">越野車</a>
-    <a href="/bike_store/views/collection.php?type=公路車">公路車</a>
+  <a href="/bike_store/views/collection.php?type=New Arrivals&order=date-desc">New Arrivals</a>
+    <a href="/bike_store/views/collection.php?type=熱門商品&order=date-desc">熱門商品</a>
+    <a href="/bike_store/views/collection.php?type=QIANT&order=date-desc">QIANT</a>
+    <a href="/bike_store/views/collection.php?type=VMX&order=date-desc">VMX</a>
+    <a href="/bike_store/views/collection.php?type=城市車&order=date-desc">城市車</a>
+    <a href="/bike_store/views/collection.php?type=摺疊車&order=date-desc">摺疊車</a>
+    <a href="/bike_store/views/collection.php?type=越野車&order=date-desc">越野車</a>
+    <a href="/bike_store/views/collection.php?type=公路車&order=date-desc">公路車</a>
   </section>
   <section id="function-link">
     <a href="/bike_store/views/login.php" title="會員資料"><img src="/bike_store/assets/user.png" alt="" id="user" /></a>
