@@ -195,6 +195,10 @@
   border-radius: 8px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
 }
+#layout .cards-container .card.order {
+  align-items: flex-start;
+  padding: 8px;
+}
 #layout .cards-container .card a {
   text-decoration: none;
 }
@@ -400,6 +404,32 @@
   color: white;
   border: 1px solid #ccc;
   padding: 3px 8px;
+}
+#layout main .center-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#layout main .center-layout #orders {
+  width: 100%;
+}
+#layout main .center-layout table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+#layout main .center-layout table th {
+  background-color: #005792;
+  color: white;
+}
+#layout main .center-layout table a {
+  text-decoration: none;
+  color: black;
+}
+#layout main .center-layout table th,
+#layout main .center-layout table td {
+  padding: 3px 5px;
+  text-align: center;
+  border: 1px solid black;
 }
 #layout .checkout {
   display: flex;
@@ -662,6 +692,95 @@ aside a {
   #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
     display: none;
   }
+  #layout main {
+    padding: 20px 80px;
+    min-height: 85dvh;
+  }
+  #layout main div {
+    background-color: #d1f4fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #layout main div h1 {
+    color: #005792;
+  }
+  #layout main div p {
+    line-height: 1.5;
+    width: 65ch;
+    font-size: 18px;
+  }
+  #layout main #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 85dvh;
+  }
+  #layout main #contact * {
+    font-size: 20px;
+  }
+  #layout main .auth-related {
+    background-color: #d1f4fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80dvh;
+    justify-content: center;
+  }
+  #layout main .auth-related * {
+    margin-block: 3px;
+  }
+  #layout main .auth-related #mode-switch {
+    display: flex;
+    background-color: #53cde2;
+    border-radius: 16px;
+    padding: 3px 8px;
+  }
+  #layout main .auth-related #mode-switch input[type=radio] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  #layout main .auth-related #mode-switch #register:checked + .register {
+    background-color: white;
+  }
+  #layout main .auth-related #mode-switch #login:checked + .login {
+    background-color: white;
+  }
+  #layout main .auth-related #mode-switch .register, #layout main .auth-related #mode-switch .login {
+    display: block;
+    cursor: pointer;
+    border-radius: 13px;
+    padding: 3px 8px;
+  }
+  #layout main .auth-related .message {
+    font-size: 18px;
+  }
+  #layout main .auth-related input[type=text], #layout main .auth-related input[type=tel], #layout main .auth-related input[type=password], #layout main .auth-related input[type=email] {
+    font-size: 20px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+  }
+  #layout main .auth-related input[type=text]:focus, #layout main .auth-related input[type=tel]:focus, #layout main .auth-related input[type=password]:focus, #layout main .auth-related input[type=email]:focus {
+    border: 2px solid #005792;
+  }
+  #layout main .auth-related #buttons {
+    display: flex;
+    flex-direction: row;
+  }
+  #layout main .auth-related #buttons button {
+    font-size: 20px;
+    background-color: #005792;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+  }
   #layout .pagination a {
     font-size: 1rem;
   }
@@ -713,6 +832,95 @@ aside a {
   #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
     display: none;
   }
+  #layout main {
+    padding: 20px 80px;
+    min-height: 85dvh;
+  }
+  #layout main div {
+    background-color: #d1f4fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #layout main div h1 {
+    color: #005792;
+  }
+  #layout main div p {
+    line-height: 1.5;
+    width: 65ch;
+    font-size: 18px;
+  }
+  #layout main #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 85dvh;
+  }
+  #layout main #contact * {
+    font-size: 20px;
+  }
+  #layout main .auth-related {
+    background-color: #d1f4fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80dvh;
+    justify-content: center;
+  }
+  #layout main .auth-related * {
+    margin-block: 3px;
+  }
+  #layout main .auth-related #mode-switch {
+    display: flex;
+    background-color: #53cde2;
+    border-radius: 16px;
+    padding: 3px 8px;
+  }
+  #layout main .auth-related #mode-switch input[type=radio] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  #layout main .auth-related #mode-switch #register:checked + .register {
+    background-color: white;
+  }
+  #layout main .auth-related #mode-switch #login:checked + .login {
+    background-color: white;
+  }
+  #layout main .auth-related #mode-switch .register, #layout main .auth-related #mode-switch .login {
+    display: block;
+    cursor: pointer;
+    border-radius: 13px;
+    padding: 3px 8px;
+  }
+  #layout main .auth-related .message {
+    font-size: 18px;
+  }
+  #layout main .auth-related input[type=text], #layout main .auth-related input[type=tel], #layout main .auth-related input[type=password], #layout main .auth-related input[type=email] {
+    font-size: 20px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+  }
+  #layout main .auth-related input[type=text]:focus, #layout main .auth-related input[type=tel]:focus, #layout main .auth-related input[type=password]:focus, #layout main .auth-related input[type=email]:focus {
+    border: 2px solid #005792;
+  }
+  #layout main .auth-related #buttons {
+    display: flex;
+    flex-direction: row;
+  }
+  #layout main .auth-related #buttons button {
+    font-size: 20px;
+    background-color: #005792;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+  }
   #layout .pagination a {
     font-size: 1.2rem;
   }
@@ -753,6 +961,95 @@ aside a {
   }
   #layout #collection-layout #order-and-type h2.type, #layout #collection-layout #order-and-type a {
     display: none;
+  }
+  #layout main {
+    padding: 20px 80px;
+    min-height: 85dvh;
+  }
+  #layout main div {
+    background-color: #d1f4fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #layout main div h1 {
+    color: #005792;
+  }
+  #layout main div p {
+    line-height: 1.5;
+    width: 65ch;
+    font-size: 18px;
+  }
+  #layout main #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 85dvh;
+  }
+  #layout main #contact * {
+    font-size: 20px;
+  }
+  #layout main .auth-related {
+    background-color: #d1f4fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80dvh;
+    justify-content: center;
+  }
+  #layout main .auth-related * {
+    margin-block: 3px;
+  }
+  #layout main .auth-related #mode-switch {
+    display: flex;
+    background-color: #53cde2;
+    border-radius: 16px;
+    padding: 3px 8px;
+  }
+  #layout main .auth-related #mode-switch input[type=radio] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  #layout main .auth-related #mode-switch #register:checked + .register {
+    background-color: white;
+  }
+  #layout main .auth-related #mode-switch #login:checked + .login {
+    background-color: white;
+  }
+  #layout main .auth-related #mode-switch .register, #layout main .auth-related #mode-switch .login {
+    display: block;
+    cursor: pointer;
+    border-radius: 13px;
+    padding: 3px 8px;
+  }
+  #layout main .auth-related .message {
+    font-size: 18px;
+  }
+  #layout main .auth-related input[type=text], #layout main .auth-related input[type=tel], #layout main .auth-related input[type=password], #layout main .auth-related input[type=email] {
+    font-size: 20px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+  }
+  #layout main .auth-related input[type=text]:focus, #layout main .auth-related input[type=tel]:focus, #layout main .auth-related input[type=password]:focus, #layout main .auth-related input[type=email]:focus {
+    border: 2px solid #005792;
+  }
+  #layout main .auth-related #buttons {
+    display: flex;
+    flex-direction: row;
+  }
+  #layout main .auth-related #buttons button {
+    font-size: 20px;
+    background-color: #005792;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 3px 8px;
   }
   #layout .pagination a {
     font-size: 1.5rem;

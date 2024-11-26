@@ -208,6 +208,10 @@ $color4: #edf9fc;
       width: 100%;
       border-radius: 8px;
       box-shadow: 0 3px 20px rgba($color: #000000, $alpha: 0.1);
+      &.order{
+        align-items: flex-start;
+        padding: 8px;
+      }
       a{
         text-decoration: none;
         img{
@@ -417,6 +421,33 @@ $color4: #edf9fc;
         }
       }
     }
+    .center-layout{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      #orders{
+        width: 100%;
+      }
+      table {
+        border-collapse: collapse;
+        border: 1px solid black;
+        th {
+          background-color: $color1;
+          color: white;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        th,
+        td {
+          padding: 3px 5px;
+          text-align: center;
+          border: 1px solid black;
+        }
+      }
+    }
+  
   }
   .checkout{
     display: flex;
@@ -698,6 +729,98 @@ aside {
         }
       }
     }
+    main{
+      padding: 20px 80px;
+      min-height: 85dvh;
+      div{
+        background-color: #d1f4fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+          color: #005792;
+        }
+        p{
+          line-height: 1.5;
+          width: 65ch;
+          font-size: 18px;
+        }
+      }
+      #contact{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 85dvh;
+        *{
+          font-size: 20px;
+        }
+      }
+      .auth-related{
+        background-color: #d1f4fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80dvh;
+        justify-content: center;
+        *{
+          margin-block: 3px;
+        }
+        #mode-switch{
+          display: flex;
+          background-color: #53cde2;
+          border-radius: 16px;
+          padding: 3px 8px;
+          input[type='radio']{
+            appearance: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        #register{
+          &:checked +.register{
+            background-color: white;
+          }
+        }
+        #login{
+            &:checked +.login{
+               background-color: white;
+            }
+        }     
+        .register,.login{
+            display: block;
+            cursor: pointer;
+            border-radius: 13px;
+            padding: 3px 8px;
+        }
+        }
+        .message{
+          font-size: 18px;
+        }
+        input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
+          font-size: 20px;
+          padding: 3px;
+          outline: none;
+          border: 1px solid #ccc;
+          &:focus{
+            border: 2px solid #005792;
+          }
+        }
+        #buttons{
+          display: flex;
+          flex-direction: row;
+          button{
+            font-size: 20px;
+            background-color: #005792;
+            color: white;
+            border: 1px solid #ccc;
+            padding: 3px 8px;
+          }
+        }
+      }
+      
+    }
     .pagination {
       a{
         font-size: 1rem;
@@ -761,6 +884,98 @@ aside {
         }
       }
     }
+    main{
+      padding: 20px 80px;
+      min-height: 85dvh;
+      div{
+        background-color: #d1f4fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+          color: #005792;
+        }
+        p{
+          line-height: 1.5;
+          width: 65ch;
+          font-size: 18px;
+        }
+      }
+      #contact{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 85dvh;
+        *{
+          font-size: 20px;
+        }
+      }
+      .auth-related{
+        background-color: #d1f4fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80dvh;
+        justify-content: center;
+        *{
+          margin-block: 3px;
+        }
+        #mode-switch{
+          display: flex;
+          background-color: #53cde2;
+          border-radius: 16px;
+          padding: 3px 8px;
+          input[type='radio']{
+            appearance: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        #register{
+          &:checked +.register{
+            background-color: white;
+          }
+        }
+        #login{
+            &:checked +.login{
+               background-color: white;
+            }
+        }     
+        .register,.login{
+            display: block;
+            cursor: pointer;
+            border-radius: 13px;
+            padding: 3px 8px;
+        }
+        }
+        .message{
+          font-size: 18px;
+        }
+        input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
+          font-size: 20px;
+          padding: 3px;
+          outline: none;
+          border: 1px solid #ccc;
+          &:focus{
+            border: 2px solid #005792;
+          }
+        }
+        #buttons{
+          display: flex;
+          flex-direction: row;
+          button{
+            font-size: 20px;
+            background-color: #005792;
+            color: white;
+            border: 1px solid #ccc;
+            padding: 3px 8px;
+          }
+        }
+      }
+      
+    }
     .pagination {
       a{
         font-size: 1.2rem;
@@ -810,6 +1025,98 @@ aside {
           display: none;
         }
       }
+    }
+    main{
+      padding: 20px 80px;
+      min-height: 85dvh;
+      div{
+        background-color: #d1f4fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+          color: #005792;
+        }
+        p{
+          line-height: 1.5;
+          width: 65ch;
+          font-size: 18px;
+        }
+      }
+      #contact{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 85dvh;
+        *{
+          font-size: 20px;
+        }
+      }
+      .auth-related{
+        background-color: #d1f4fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80dvh;
+        justify-content: center;
+        *{
+          margin-block: 3px;
+        }
+        #mode-switch{
+          display: flex;
+          background-color: #53cde2;
+          border-radius: 16px;
+          padding: 3px 8px;
+          input[type='radio']{
+            appearance: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        #register{
+          &:checked +.register{
+            background-color: white;
+          }
+        }
+        #login{
+            &:checked +.login{
+               background-color: white;
+            }
+        }     
+        .register,.login{
+            display: block;
+            cursor: pointer;
+            border-radius: 13px;
+            padding: 3px 8px;
+        }
+        }
+        .message{
+          font-size: 18px;
+        }
+        input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
+          font-size: 20px;
+          padding: 3px;
+          outline: none;
+          border: 1px solid #ccc;
+          &:focus{
+            border: 2px solid #005792;
+          }
+        }
+        #buttons{
+          display: flex;
+          flex-direction: row;
+          button{
+            font-size: 20px;
+            background-color: #005792;
+            color: white;
+            border: 1px solid #ccc;
+            padding: 3px 8px;
+          }
+        }
+      }
+     
     }
     .pagination {
       a{

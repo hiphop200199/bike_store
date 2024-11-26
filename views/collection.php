@@ -6,9 +6,11 @@ $response =  $product->getProducts();
 $data = $response['data'];
 $page_now = $response['page_now'];
 $pages = $response['pages'];
+$order = $response['order'];
 $keyword = $response['keyword']??null;
 $type = $response['type']??null;
 $company = $response['company']??null;
+
 ?>
 <div id="layout">
    <?php require_once '../components/header.php'; ?>

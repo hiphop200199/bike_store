@@ -43,7 +43,7 @@ class Auth
             echo json_encode(['message' => '密碼格式不正確.']);
             exit;
         }
-        $check_email_sql = 'select name,email,password,delete_flag from users where email = ? ';
+        $check_email_sql = 'select id,name,email,password,delete_flag from users where email = ? ';
         $statement = $this->conn->prepare($check_email_sql);
         $statement->execute([$email]);
         if ($statement->rowCount() > 0) {
@@ -60,6 +60,7 @@ class Auth
             }else{
                 session_regenerate_id(); //更新sessionID
                 $_SESSION['user'] = $row['name'];
+                $_SESSION['user_id'] = $row['id'];
                 echo json_encode(['message' => 'login success.', 'redirect' => 'index.php']);
                 exit;
             }
@@ -110,8 +111,13 @@ class Auth
             $statement = $this->conn->prepare($create_user_sql);
             $statement->execute([null,$name,$email,$hashed_password,$phone,$address,$time,$time,0]);
             if ($statement->rowCount() > 0) {
+                $user_id_sql = 'select id from users where email = ?';
+                $statement = $this->conn->prepare($user_id_sql);
+                $statement->execute([$email]);
+                $user_id = $statement->fetch(pdo::FETCH_ASSOC)['id'];
                 session_regenerate_id(); //更新sessionID
                 $_SESSION['user'] = $name;
+                $_SESSION['user_id'] = $user_id;
                 echo json_encode(['message' => 'register success.', 'redirect' => 'index.php']);
                 exit;
             }
