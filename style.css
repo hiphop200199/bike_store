@@ -404,11 +404,45 @@
   color: white;
   border: 1px solid #ccc;
   padding: 3px 8px;
+  cursor: pointer;
 }
 #layout main .center-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+#layout main .center-layout #info {
+  display: flex;
+  flex-direction: column;
+}
+#layout main .center-layout #info * {
+  margin-block: 2px;
+}
+#layout main .center-layout #info button {
+  font-size: 20px;
+  background-color: #005792;
+  color: white;
+  border: 1px solid #ccc;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+#layout main .center-layout #info input {
+  font-size: 20px;
+  padding: 3px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+#layout main .center-layout #info input:focus {
+  border: 2px solid #005792;
+}
+#layout main .center-layout #info #start-edit, #layout main .center-layout #info #confirm-or-cancel {
+  align-self: flex-end;
+}
+#layout main .center-layout #info #confirm-or-cancel {
+  display: none;
+}
+#layout main .center-layout #info #confirm-or-cancel.editing {
+  display: block;
 }
 #layout main .center-layout #orders {
   width: 100%;
@@ -693,8 +727,7 @@ aside a {
     display: none;
   }
   #layout main {
-    padding: 20px 80px;
-    min-height: 85dvh;
+    padding: 20px 10px;
   }
   #layout main div {
     background-color: #d1f4fa;
@@ -833,7 +866,7 @@ aside a {
     display: none;
   }
   #layout main {
-    padding: 20px 80px;
+    padding: 20px 40px;
     min-height: 85dvh;
   }
   #layout main div {
@@ -963,7 +996,7 @@ aside a {
     display: none;
   }
   #layout main {
-    padding: 20px 80px;
+    padding: 20px 40px;
     min-height: 85dvh;
   }
   #layout main div {

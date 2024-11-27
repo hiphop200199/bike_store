@@ -40,10 +40,11 @@ require_once "../components/head.php";
 
 
     <?php require_once '../components/footer.php'; ?>
-    <?php require_once '../components/side-menu.php'; ?>
+ 
     <?php require_once '../components/to-top.php'; ?>
 </div>
+<?php require_once '../components/side-menu.php'; ?>
+<?php require_once '../components/side-cart.php'; ?>
 
 
-<script src="index.js"></script>
 <?php require_once '../components/foot.php'; ?>

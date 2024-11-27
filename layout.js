@@ -23,7 +23,6 @@ $(function () {
       layout.style.filter = 'none';
     });
     layout.addEventListener('click',(e)=> {
-      console.log(e.target)
       if(e.target.id ==='cart' || e.target.alt ==='cart'||e.target.id==='aside-menu-btn'||e.target.id==='aside-menu-pic'){
         return;
       }else{

@@ -25,10 +25,16 @@ class Auth
             case 'logout':
                 $this->logout();
                 break;
+            case 'edit-user':
+                $this->editUser($data);
+                break;
         }
     }
     private function login($data)
     {
+        if($_SERVER['REQUEST_METHOD']!=='POST'){
+            return;
+        }
         header('Content-Type:application/json'); //回傳json格式
         $email = $data['email'];
         $password = $data['password'];
@@ -73,13 +79,19 @@ class Auth
     }
     private function logout()
     {
+        if($_SERVER['REQUEST_METHOD']!=='POST'){
+            return;
+        }
         $_SESSION = [];
         session_destroy(); //破壞session
-        echo json_encode(['message'=>'logout success.','reload'=>'true']);
+        echo json_encode(['message'=>'logout success.','redirect' => 'index.php']);
         exit;
     }
     private function register($data)
     {
+        if($_SERVER['REQUEST_METHOD']!=='POST'){
+            return;
+        }
         header('Content-Type:application/json'); //回傳json格式
         $name = strip_tags(trim($data['name']));
         $email = $data['email'];
@@ -122,6 +134,33 @@ class Auth
                 exit;
             }
         }
+    }
+    private function editUser($data)
+    {
+        if(!$_SESSION['user_id']||$_SERVER['REQUEST_METHOD']!=='POST'){
+            return;
+        }
+        $tel = strip_tags(trim($data['tel']));
+        $address = strip_tags(trim($data['address']));
+        $update_member_sql = 'update users set tel = ?,address = ? where id = ?';
+        $statement = $this->conn->prepare($update_member_sql);
+        $statement->execute([$tel,$address,$_SESSION['user_id']]);
+        if($statement->rowCount()>0){
+            session_regenerate_id(); //更新sessionID
+            echo json_encode(['message' => 'update success.', 'redirect' => 'index.php']);
+            exit;
+        }
+    }
+    public function getUser()
+    {
+        if(!$_SESSION['user_id']){
+            return;
+        }
+        $get_user_sql = 'select name,email,tel,address from users where id = ?';
+        $statement = $this->conn->prepare($get_user_sql);
+        $statement->execute([$_SESSION['user_id']]);
+        $data = $statement->fetch(pdo::FETCH_ASSOC);
+        return $data;
     }
 }
 $auth = new Auth($conn);

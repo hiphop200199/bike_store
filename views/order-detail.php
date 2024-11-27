@@ -1,5 +1,8 @@
 <?php
 require_once "../components/head.php";
+if(!$_SESSION['user_id']){
+    header('Location:/bike_store/index.php');
+  }
 /* require_once "../controllers/product.php";
 $product = new Product($conn);
 $response =  $product->getProducts();
@@ -45,8 +48,7 @@ $company = $response['company']??null; */
 </div>
 <?php require_once '../components/side-menu.php'; ?>
 <?php require_once '../components/side-cart.php'; ?>
-<script src="../layout.js"></script>
-<script src="../cart.js"></script>
+
 <?php require_once '../components/foot.php'; ?>
 
 

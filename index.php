@@ -1,8 +1,6 @@
 <?php
 require_once "./components/head.php";
-/*if($_GET) {
-  header('Location:not-found.php');
- } */
+
 ?>
 <div id="layout">
    <?php require_once './components/header.php'; ?>
@@ -139,4 +137,5 @@ require_once "./components/head.php";
 <script src="auto-slider.js"></script>
 <script src="layout.js"></script>
 <script src="cart.js"></script>
-<?php require_once './components/foot.php'; ?>
+</body>
+</html>

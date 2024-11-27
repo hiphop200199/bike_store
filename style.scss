@@ -418,6 +418,7 @@ $color4: #edf9fc;
           color: white;
           border: 1px solid #ccc;
           padding: 3px 8px;
+          cursor: pointer;
         }
       }
     }
@@ -425,6 +426,39 @@ $color4: #edf9fc;
       display: flex;
       flex-direction: column;
       align-items: center;
+      #info{
+        display: flex;
+        flex-direction: column;
+        *{
+          margin-block: 2px;
+        }
+        button{
+          font-size: 20px;
+          background-color: #005792;
+          color: white;
+          border: 1px solid #ccc;
+          padding: 3px 8px;
+          cursor: pointer;
+        }
+        input{
+          font-size: 20px;
+          padding: 3px;
+          outline: none;
+          border: 1px solid #ccc;
+          &:focus{
+            border: 2px solid #005792;
+          }
+        }
+        #start-edit,#confirm-or-cancel{
+          align-self: flex-end;
+        }
+        #confirm-or-cancel{
+          display: none;
+          &.editing{
+            display: block;
+          }
+        }
+      }
       #orders{
         width: 100%;
       }
@@ -730,8 +764,7 @@ aside {
       }
     }
     main{
-      padding: 20px 80px;
-      min-height: 85dvh;
+      padding: 20px 10px;
       div{
         background-color: #d1f4fa;
         display: flex;
@@ -885,7 +918,7 @@ aside {
       }
     }
     main{
-      padding: 20px 80px;
+      padding: 20px 40px;
       min-height: 85dvh;
       div{
         background-color: #d1f4fa;
@@ -1027,7 +1060,7 @@ aside {
       }
     }
     main{
-      padding: 20px 80px;
+      padding: 20px 40px;
       min-height: 85dvh;
       div{
         background-color: #d1f4fa;

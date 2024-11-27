@@ -74,6 +74,5 @@ $company = $response['company']??null;
 </div>
 <?php require_once '../components/side-menu.php'; ?>
 <?php require_once '../components/side-cart.php'; ?>
-<script src="../layout.js"></script>
-<script src="../cart.js"></script>
+
 <?php require_once '../components/foot.php'; ?>
