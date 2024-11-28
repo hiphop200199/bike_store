@@ -12,20 +12,17 @@
   <section id="mode-switch">
   <input type="radio" name="theme" id="register" />
 <label for="register" class="register">註冊</label>
-<input type="radio" name="theme" id="login" checked />
+<input type="radio" name="theme" id="login" checked/>
 <label for="login" class="login">登入</label>
   </section>
  
-      <input type="text" name="name" class="register-related" placeholder="請輸入姓名..." required maxlength="255" />
-      <input type="email" name="email" placeholder="請輸入email..."  required maxlength="255" />
+      <input type="text" name="name" class="register-related" placeholder="請輸入姓名..."  />
+      <input type="email" name="email" placeholder="請輸入email..."   />
       <input
         type="password"
         placeholder="請輸入密碼..."
         name="password"
-        pattern="[A-Z]{1,}[a-z]{1,}[0-9]{1,}\W{1,}"
-        title="須結合大小寫英文字母及數字以及特殊符號至少一個"
-        required
-        minlength="8"
+        title="須結合大小寫英文字母及數字以及特殊符號至少一個"     
       />
       <input
         type="password"
@@ -34,11 +31,9 @@
         name="check-password"
         pattern="[A-Z]{1,}[a-z]{1,}[0-9]{1,}\W{1,}"
         title="須結合大小寫英文字母及數字以及特殊符號至少一個"
-        required
-        minlength="8"
       />
-      <input type="tel" name="tel" class="register-related"  required placeholder="請輸入電話..." />
-      <input type="text" name="address" class="register-related"  required placeholder="請輸入送貨地址..." />
+      <input type="tel" name="tel" class="register-related"  placeholder="請輸入電話..." />
+      <input type="text" name="address" class="register-related"  placeholder="請輸入送貨地址..." />
       <p class="message" ></p>
       <div id="buttons">
       <button type="submit" class="register-related">繼續</button>

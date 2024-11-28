@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(session_status()!==PHP_SESSION_ACTIVE){
+    session_start();
+}
 date_default_timezone_set('Asia/Taipei');//設定預設時區
 require_once '../database/db.php';
 use Stripe\Checkout\Session;
@@ -28,7 +30,7 @@ class Order
         $pages = intval(ceil($total_row_count / $per_page)); 
         $data_sql = 'select id,payment,payment_status,total_price,invoice,receiver_name,receiver_tel,receiver_address,pickup,pickup_status from orders where delete_flag = 0 and user_id = ? order by created_at desc limit ? offset ?'; 
         $statement = $this->conn->prepare($data_sql);       
-        $statement->execute([]);
+        $statement->execute([$_SESSION['user_id'],$per_page,($page_now -1) * $per_page]);
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);      
         return ['page_now' => $page_now, 'pages' => $pages, 'data' => $data];   
     }

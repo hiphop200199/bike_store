@@ -666,6 +666,11 @@ aside a {
   color: black;
   text-align: center;
 }
+aside #side-logout {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 :root:has(#login:checked) .register-related {
   display: none;
@@ -688,7 +693,10 @@ aside a {
   #layout header #filter-link a {
     display: none;
   }
-  #layout header #aside-menu-btn {
+  #layout header #function-link #logout {
+    display: none;
+  }
+  #layout header #function-link #aside-menu-btn {
     display: inline;
   }
   #layout .cards-container {
@@ -837,6 +845,9 @@ aside a {
     flex-direction: column;
     align-items: center;
   }
+  aside.active {
+    width: 330px;
+  }
 }
 @media screen and (min-width: 576px) and (max-width: 768px) {
   #layout header {
@@ -845,7 +856,10 @@ aside a {
   #layout header #filter-link a {
     display: none;
   }
-  #layout header #aside-menu-btn {
+  #layout header #function-link #logout {
+    display: none;
+  }
+  #layout header #function-link #aside-menu-btn {
     display: inline;
   }
   #layout .cards-container {
@@ -972,6 +986,9 @@ aside a {
   }
   #layout footer :not(img) {
     margin: 5px;
+  }
+  aside.active {
+    width: 330px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -1102,6 +1119,9 @@ aside a {
   #layout footer #inner-links {
     flex-direction: column;
     align-items: center;
+  }
+  aside.active {
+    width: 330px;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1440px) {

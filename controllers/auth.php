@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(session_status()!==PHP_SESSION_ACTIVE){
+    session_start();
+}
 require_once '../database/db.php';
 date_default_timezone_set('Asia/Taipei');//設定預設時區
 class Auth
@@ -15,20 +17,23 @@ class Auth
     
         $data = json_decode($request_body, true);
         
-        switch ($data['task']) {
-            case 'register':
-                $this->register($data);
-                break;
-            case 'login':
-                $this->login($data);
-                break;
-            case 'logout':
-                $this->logout();
-                break;
-            case 'edit-user':
-                $this->editUser($data);
-                break;
+        if($data){
+            switch ($data['task']) {
+                case 'register':
+                    $this->register($data);
+                    break;
+                case 'login':
+                    $this->login($data);
+                    break;
+                case 'logout':
+                    $this->logout();
+                    break;
+                case 'edit-user':
+                    $this->editUser($data);
+                    break;
+            }
         }
+      
     }
     private function login($data)
     {
@@ -140,11 +145,11 @@ class Auth
         if(!$_SESSION['user_id']||$_SERVER['REQUEST_METHOD']!=='POST'){
             return;
         }
-        $tel = strip_tags(trim($data['tel']));
+        $phone = strip_tags(trim($data['phone']));
         $address = strip_tags(trim($data['address']));
-        $update_member_sql = 'update users set tel = ?,address = ? where id = ?';
+        $update_member_sql = 'update users set phone = ?,address = ? where id = ?';
         $statement = $this->conn->prepare($update_member_sql);
-        $statement->execute([$tel,$address,$_SESSION['user_id']]);
+        $statement->execute([$phone,$address,$_SESSION['user_id']]);
         if($statement->rowCount()>0){
             session_regenerate_id(); //更新sessionID
             echo json_encode(['message' => 'update success.', 'redirect' => 'index.php']);
@@ -156,7 +161,7 @@ class Auth
         if(!$_SESSION['user_id']){
             return;
         }
-        $get_user_sql = 'select name,email,tel,address from users where id = ?';
+        $get_user_sql = 'select name,email,phone,address from users where id = ?';
         $statement = $this->conn->prepare($get_user_sql);
         $statement->execute([$_SESSION['user_id']]);
         $data = $statement->fetch(pdo::FETCH_ASSOC);

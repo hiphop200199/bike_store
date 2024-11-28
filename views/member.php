@@ -1,16 +1,18 @@
 <?php
-session_start();
-if(!$_SESSION['user_id']){
-  header('Location:/bike_store/index.php');
+if(session_status()!==PHP_SESSION_ACTIVE){
+  session_start();
 }
 require_once "../components/head.php";
 require_once "../controllers/auth.php";
 require_once "../controllers/order.php";
+if(!$_SESSION['user_id']){
+  header('Location:/bike_store/index.php');
+}
 $auth = new Auth($conn);
 $response = $auth->getUser();
 $name = $response['name'];
 $email = $response['email'];
-$tel = $response['tel'];
+$tel = $response['phone'];
 $address = $response['address'];
 $auth = null;
 $order = new Order($conn);

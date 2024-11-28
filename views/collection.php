@@ -22,7 +22,7 @@ $company = $response['company']??null;
     <section id="order-and-type">
     <h2>排列方式</h2>
     <select name="order-mode" id="order-mode">
-        <option value="date-desc" selected>日期,從新到舊</option>
+        <option value="date-desc">日期,從新到舊</option>
         <option value="date-asc">日期,從舊到新</option>
         <option value="price-desc">價錢,從高到低</option>
         <option value="price-asc">價錢,從低到高</option>
@@ -74,5 +74,5 @@ $company = $response['company']??null;
 </div>
 <?php require_once '../components/side-menu.php'; ?>
 <?php require_once '../components/side-cart.php'; ?>
-
+<script src="../collection.js"></script>
 <?php require_once '../components/foot.php'; ?>
