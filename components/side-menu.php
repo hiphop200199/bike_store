@@ -8,7 +8,7 @@
     <a href="/bike_store/views/collection.php?type=摺疊車&order=date-desc&page=1">摺疊車</a>
     <a href="/bike_store/views/collection.php?type=越野車&order=date-desc&page=1">越野車</a>
     <a href="/bike_store/views/collection.php?type=公路車&order=date-desc&page=1">公路車</a>
-    <?php if($_SESSION['user_id']) :;?>
+    <?php if(isset($_SESSION['user_id'])) :;?>
     <button id="side-logout">
    登出
   </button>

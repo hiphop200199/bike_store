@@ -4,6 +4,7 @@ if(session_status()!==PHP_SESSION_ACTIVE){
 }
 date_default_timezone_set('Asia/Taipei');//設定預設時區
 require_once '../database/db.php';
+require_once '../vendor/autoload.php';
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 class Order
@@ -43,8 +44,8 @@ class Order
         $data_sql = 'select id,name,amount,price from order_details where order_id = ? ';
         $statement = $this->conn->prepare($data_sql);
         $statement->execute([$order_id]);
-        $data = $statement->fetch(PDO::FETCH_ASSOC);
-        return $data;
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+       return ['data'=>$data] ;
     }
     public function checkout()
     {
@@ -60,7 +61,7 @@ class Order
         Stripe::setApiKey($this->stripeSecretKey);
         header('Content-Type: application/json');
         $YOUR_DOMAIN = 'http://localhost/bike_store';
-        $items = $data['data'];
+        $items = json_decode($data['data'],true) ;
         $lineItems = []; //stripe用來定義商品的資訊
         $totalPrice = 0;//總金額
         foreach ($items as $item) {
@@ -68,15 +69,16 @@ class Order
                 'price_data' => [
                     'currency' => 'usd',
                     'product_data' => [
-                        'name' => $item->name,
-                        'images' => [$item->image_source]
+                        'name' => $item['name'],
+                        'images' => [$item['image']]
                     ],
-                    'unit_amount' => $item->price*100, //用美分計算，所以要*100轉換成美元
+                    'unit_amount' => $item['price']*100, //用美分計算，所以要*100轉換成美元
                 ],
-                'quantity' => $item->amount,
+                'quantity' => $item['amount'],
             ];
-            $totalPrice += $item->price * $item->amount;
+            $totalPrice += $item['price'] * $item['amount'];
         }
+        $this->conn->beginTransaction();
         try{
             //建立結帳session
             $checkout_session = Session::create([
@@ -86,7 +88,7 @@ class Order
                 'cancel_url' => $YOUR_DOMAIN.'/views'.'/checkout-cancel.php',
             ]);
             //產生未付款訂單
-            $this->conn->beginTransaction();
+            
             $time = date("Y-m-d H:i:s");
             $create_order_sql = 'insert into orders values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
             $statement = $this->conn->prepare($create_order_sql);
@@ -115,15 +117,17 @@ class Order
             $statement = $this->conn->prepare($create_order_detail_sql);
             foreach($items as $item){
                $statement->execute([
-                null,$order_id,$item['id'],$item['name'],$item['amount'],$item['price'],$time,$time,0
+                null,$order_id,$item['productId'],$item['name'],$item['amount'],$item['price'],$time,$time,0
                ]);
             }
             $this->conn->commit();
-            return json_encode(['url'=> $checkout_session->url]);
+            echo json_encode(['url'=> $checkout_session->url]);
+            exit;
 
         }catch (Exception $e){
             $this->conn->rollBack();
-            return json_encode(['error'=> $e->getMessage()]);
+            echo json_encode(['error'=> $e->getMessage()]);
+            exit;
         }
 
     }
@@ -140,10 +144,11 @@ class Order
             $session_id = $_GET['session_id'];
             $session = Session::retrieve($session_id);
             if(! $session){
-                return json_encode(['message'=>'Invalid Session ID']);
+                echo json_encode(['message'=>'Invalid Session ID']);
+                exit;
             }
             //找對應session_id的訂單
-            $check_order_sql = 'select from orders where session_id = ?';
+            $check_order_sql = 'select * from orders where session_id = ?';
             $statement = $this->conn->prepare($check_order_sql);
             $statement->execute([$session_id]);
             if($statement->rowCount()==0){
@@ -158,11 +163,25 @@ class Order
             $statement = $this->conn->prepare($user_email_sql);
             $statement->execute([$user_id]);
             $email = $statement->fetch(PDO::FETCH_ASSOC)['email'];
-            mail($email,'Thanks for your shopping!','Thank you for your order,'.$_SESSION['user'].'! Every purchase supports our small business and that means the world.');
-            return json_encode(['message'=> 'done.']);
+            //mail($email,'Thanks for your shopping!','Thank you for your order,'.$_SESSION['user'].'! Every purchase supports our small business and that means the world.');
+            echo json_encode(['message'=> 'done.']);
         }catch (Exception $e) {
-          return json_encode(['error'=> $e->getMessage()]);
+          echo json_encode(['error'=> $e->getMessage()]);
         }
     }
 }
 
+$request_body = file_get_contents('php://input');
+    
+$data = json_decode($request_body, true);
+
+$order = new Order($conn);
+
+if($data){
+    switch ($data['task']) {
+        case 'checkout':
+            $order->checkout();
+            break;
+    }
+}
+$order = null;

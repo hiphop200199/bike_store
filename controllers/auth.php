@@ -31,6 +31,17 @@ class Auth
                 case 'edit-user':
                     $this->editUser($data);
                     break;
+                case 'get-user':
+                    if(!$_SESSION['user_id']){
+                        return;
+                    }
+                    $get_user_sql = 'select name,email,phone,address from users where id = ?';
+                    $statement = $this->conn->prepare($get_user_sql);
+                    $statement->execute([$_SESSION['user_id']]);
+                    $data = $statement->fetch(pdo::FETCH_ASSOC);
+                    echo json_encode(['name'=>$data['name'],'email'=>$data['email'],'phone'=>$data['phone'],'address'=>$data['address']] ) ;
+            
+                    break;
             }
         }
       
@@ -165,7 +176,7 @@ class Auth
         $statement = $this->conn->prepare($get_user_sql);
         $statement->execute([$_SESSION['user_id']]);
         $data = $statement->fetch(pdo::FETCH_ASSOC);
-        return $data;
+        return ['name'=>$data['name'],'email'=>$data['email'],'phone'=>$data['phone'],'address'=>$data['address']] ;
     }
 }
 $auth = new Auth($conn);

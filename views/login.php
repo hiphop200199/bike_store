@@ -29,7 +29,6 @@
         class="register-related"
         placeholder="請確認密碼..."
         name="check-password"
-        pattern="[A-Z]{1,}[a-z]{1,}[0-9]{1,}\W{1,}"
         title="須結合大小寫英文字母及數字以及特殊符號至少一個"
       />
       <input type="tel" name="tel" class="register-related"  placeholder="請輸入電話..." />

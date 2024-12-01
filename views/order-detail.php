@@ -1,19 +1,16 @@
 <?php
+if(session_status()!==PHP_SESSION_ACTIVE){
+    session_start();
+}
 require_once "../components/head.php";
+require_once "../controllers/order.php";
 if(!$_SESSION['user_id']){
     header('Location:/bike_store/index.php');
-  }
-/* require_once "../controllers/product.php";
-$product = new Product($conn);
-$response =  $product->getProducts();
+}
+$order = new Order($conn);
+$response = $order->getOrder();
 $data = $response['data'];
-$page_now = $response['page_now'];
-$pages = $response['pages'];
-$order = $response['order'];
-$keyword = $response['keyword']??null;
-$type = $response['type']??null;
-$company = $response['company']??null; */
-
+$order = null;
 ?>
 <div id="layout">
    <?php require_once '../components/header.php'; ?>
@@ -30,12 +27,14 @@ $company = $response['company']??null; */
             </tr>
         </thead>
         <tbody>
+            <?php foreach ($data as $key => $item) :;?>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?=htmlspecialchars($item['id'])?></td>
+                <td><?=htmlspecialchars($item['name'])?></td>
+                <td><?=htmlspecialchars($item['amount'])?></td>
+                <td><?=htmlspecialchars($item['price'])?></td>
             </tr>
+            <?php endforeach;?>
         </tbody>
     </table>
     </section>

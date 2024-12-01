@@ -1,16 +1,3 @@
-/* @use './layout.scss';
-@use './homepage.scss';
-@use './login.scss';
-@use './register.scss';
-@use './forgot-password.scss';
-@use './password-reset.scss';
-@use './list.scss';
-@use './cart.scss';
-@use './member.scss';
-@use './detail.scss';
-@use './order.scss';
-@use './order-detail.scss';
-@use './value.scss'; */
 @import url("https://fonts.googleapis.com/css2?family=Uchen&display=swap");
 * {
   padding: 0;
@@ -237,6 +224,8 @@
   position: relative;
   height: 50dvh;
   overflow: hidden;
+  width: 920px;
+  left: calc(50% - 460px);
 }
 #layout #popular-items-slider #slide-left {
   position: absolute;
@@ -247,6 +236,7 @@
   border: none;
   cursor: pointer;
   background-color: #53cde2;
+  z-index: 1;
 }
 #layout #popular-items-slider #slide-left img {
   height: 2rem;
@@ -254,10 +244,9 @@
   filter: invert(1);
 }
 #layout #popular-items-slider #slider {
-  width: 920px;
   position: relative;
-  left: calc(50% - 460px);
   height: 50dvh;
+  transition: 0.2s;
 }
 #layout #popular-items-slider #slider #cards {
   width: -moz-max-content;
@@ -310,6 +299,7 @@
   border: none;
   cursor: pointer;
   background-color: #53cde2;
+  z-index: 1;
 }
 #layout #popular-items-slider #slide-right img {
   height: 2rem;
@@ -410,6 +400,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+#layout main .center-layout.ready-checkout {
+  background-color: #d1f4fa;
+  min-height: 85dvh;
+}
+#layout main .center-layout.ready-checkout * {
+  margin-block: 3px;
+}
+#layout main .center-layout.ready-checkout input[type=text] {
+  font-size: 20px;
+  padding: 3px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+#layout main .center-layout.ready-checkout input[type=text]:focus {
+  border: 2px solid #005792;
+}
+#layout main .center-layout.ready-checkout #same {
+  display: flex;
+  align-items: center;
+}
+#layout main .center-layout.ready-checkout #same input[type=checkbox] {
+  accent-color: #005792;
+  width: 20px;
+  height: 20px;
+}
+#layout main .center-layout.ready-checkout button {
+  font-size: 20px;
+  background-color: #005792;
+  color: white;
+  border: 1px solid #ccc;
+  padding: 3px 8px;
+  cursor: pointer;
 }
 #layout main .center-layout #info {
   display: flex;
@@ -571,7 +594,7 @@ aside #cart-content #close-cart {
   margin-bottom: 30px;
 }
 aside #cart-content p {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
 }
 aside #cart-content .item {
@@ -670,6 +693,7 @@ aside #side-logout {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 16px;
 }
 
 :root:has(#login:checked) .register-related {
@@ -702,6 +726,10 @@ aside #side-logout {
   #layout .cards-container {
     grid-template-columns: repeat(1, 1fr);
   }
+  #layout #popular-items-slider {
+    width: 230px;
+    left: calc(50% - 115px);
+  }
   #layout #popular-items-slider #slide-left {
     left: 0.25rem;
     top: calc(25dvh - 0.75rem);
@@ -719,10 +747,6 @@ aside #side-logout {
   #layout #popular-items-slider #slide-right img {
     height: 1.5rem;
     width: 1.5rem;
-  }
-  #layout #popular-items-slider #slider {
-    width: 230px;
-    left: calc(50% - 115px);
   }
   #layout #collection-layout {
     flex-direction: column;
@@ -865,7 +889,7 @@ aside #side-logout {
   #layout .cards-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  #layout #popular-items-slider #slider {
+  #layout #popular-items-slider {
     width: 460px;
     left: calc(50% - 230px);
   }
@@ -998,7 +1022,7 @@ aside #side-logout {
   #layout .cards-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  #layout #popular-items-slider #slider {
+  #layout #popular-items-slider {
     width: 460px;
     left: calc(50% - 230px);
   }
@@ -1128,7 +1152,7 @@ aside #side-logout {
   #layout header {
     padding: 5px 3rem;
   }
-  #layout #popular-items-slider #slider {
+  #layout #popular-items-slider {
     width: 690px;
     left: calc(50% - 345px);
   }

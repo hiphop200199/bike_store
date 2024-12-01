@@ -1,5 +1,5 @@
 <?php
-require_once '../database/db.php';
+require_once realpath($_SERVER['DOCUMENT_ROOT']). '/bike_store/database/db.php';
 class Product
 {
     private $conn;
@@ -95,6 +95,21 @@ class Product
         $data = $statement->fetch(PDO::FETCH_ASSOC);
         return ['collection'=>$collection,'data'=>$data];
     }
-    
+    public function getEightNewProducts()
+    {
+        $data_sql ='select id,name,price,image_source from products where delete_flag = 0 order by created_at desc limit 8'; 
+        $statement = $this->conn->prepare($data_sql);
+        $statement->execute();
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return ['data'=>$data];
+    }
+    public function getRandomFourProducts()
+    {
+        $data_sql ='select id,name,price,image_source,type from products where delete_flag = 0 order by RAND() limit 4'; 
+        $statement = $this->conn->prepare($data_sql);
+        $statement->execute();
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return ['data'=>$data];
+    }
 }
 

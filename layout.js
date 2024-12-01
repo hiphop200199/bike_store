@@ -37,8 +37,8 @@ $(function () {
       sideMenu.classList.toggle('active');
       layout.style.filter ==='sepia(0.9) brightness(0.6)'?layout.style.filter='none': layout.style.filter ='sepia(0.9) brightness(0.6)';
     })
-    logout.addEventListener('click',e=> handleLogout(e));
-    sideLogout.addEventListener('click',e=>handleLogout(e));
+    logout?.addEventListener('click',e=> handleLogout(e));
+    sideLogout?.addEventListener('click',e=>handleLogout(e));
     function handleLogout(e){
         e.preventDefault();
         let formInputs = {

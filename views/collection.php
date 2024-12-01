@@ -15,7 +15,7 @@ $company = $response['company']??null;
 <div id="layout">
    <?php require_once '../components/header.php'; ?>
    <section id="breadcrumb">
-   <a href="/bike_store">首頁</a>><a><?=htmlentities(strip_tags(trim( $_GET['type'])))  ;?></a>
+   <a href="/bike_store">首頁</a>><a><?=isset($_GET['type'])?htmlentities(strip_tags(trim( $_GET['type']))):htmlentities(strip_tags(trim( $_GET['company'])));?></a>
    </section>
    
     <div id="collection-layout">
@@ -37,11 +37,11 @@ $company = $response['company']??null;
     <a href="/bike_store/views/collection.php?type=越野車&order=date-desc&page=1">越野車</a>
     <a href="/bike_store/views/collection.php?type=公路車&order=date-desc&page=1">公路車</a>
     </section>
-   <section id="cards-render"> <h1 class="title"><?=htmlentities(strip_tags(trim( $_GET['type'])))  ;?></h1>
+   <section id="cards-render"> <h1 class="title"><?=isset($_GET['type'])?htmlentities(strip_tags(trim( $_GET['type']))):htmlentities(strip_tags(trim( $_GET['company'])));?></h1>
    <section class="cards-container">
    <?php foreach ($data as $key => $item) : ?>
    <div class="card" id="<?= htmlentities($item['id']); ?>">
-      <a href="/bike_store/views/products.php?collection=<?=$response['type']? htmlentities($response['type']) :htmlentities($response['company']);?>&productID=<?=htmlentities($item['id']) ;?>"><img src="<?= htmlentities($item['image_source']); ?>" alt=""></a>
+      <a href="/bike_store/views/products.php?collection=<?=isset($_GET['type'])?htmlentities(strip_tags(trim( $_GET['type']))):htmlentities(strip_tags(trim( $_GET['company'])));?>&productID=<?=htmlentities($item['id']) ;?>"><img src="<?= htmlentities($item['image_source']); ?>" alt=""></a>
       <a href="">
          <p class="name"><?= htmlentities($item['name']) ;?></p>
          <p class="price">NT$ <?= htmlentities($item['price']); ?></p>

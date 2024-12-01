@@ -5,6 +5,8 @@ require_once "../components/head.php";
  } */
 require_once "../controllers/product.php";
 $product = new Product($conn);
+$guess_you_like = $product->getRandomFourProducts();
+$guess_you_like_items = $guess_you_like['data'];
 $response =  $product->getProduct();
 $data = $response['data'];
 $collection = $response['collection'];
@@ -33,40 +35,16 @@ $collection = $response['collection'];
    </p>
    <h2 class="title">猜你喜歡</h2>
    <section class="cards-container">
-
-      <div class="card">
-         <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-         <a href="">
-            <p class="name">Lorem, ipsum.</p>
-            <p class="price">NT$ 115</p>
-         </a>
-      </div>
-      <div class="card">
-         <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-         <a href="">
-            <p class="name">Lorem, ipsum.</p>
-            <p class="price">NT$ 115</p>
-         </a>
-      </div>
-      <div class="card">
-         <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-         <a href="">
-            <p class="name">Lorem, ipsum.</p>
-            <p class="price">NT$ 115</p>
-         </a>
-      </div>
-      <div class="card">
-         <a href=""><img src="/bike_store/assets/bicycle-1834265_1280.jpg" alt=""></a>
-         <a href="">
-            <p class="name">Lorem, ipsum.</p>
-            <p class="price">NT$ 115</p>
-         </a>
-      </div>
-
-
+   <?php foreach ($guess_you_like_items as $key => $item) : ?>
+   <div class="card" id="<?= htmlentities($item['id']); ?>">
+      <a href="/bike_store/views/products.php?collection=<?= htmlentities($item['type']) ;?>&productID=<?=htmlentities($item['id']) ;?>"><img src="<?= htmlentities($item['image_source']); ?>" alt=""></a>
+      <a href="">
+         <p class="name"><?= htmlentities($item['name']) ;?></p>
+         <p class="price">NT$ <?= htmlentities($item['price']); ?></p>
+      </a>
+   </div>
+   <?php endforeach ?>
    </section>
-
-
    <?php require_once '../components/footer.php'; ?>
    <?php require_once '../components/to-top.php'; ?>
 </div>

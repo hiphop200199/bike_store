@@ -1,16 +1,3 @@
-/* @use './layout.scss';
-@use './homepage.scss';
-@use './login.scss';
-@use './register.scss';
-@use './forgot-password.scss';
-@use './password-reset.scss';
-@use './list.scss';
-@use './cart.scss';
-@use './member.scss';
-@use './detail.scss';
-@use './order.scss';
-@use './order-detail.scss';
-@use './value.scss'; */
 @import url("https://fonts.googleapis.com/css2?family=Uchen&display=swap");
 $color1: #005792;
 $color2: #53cde2;
@@ -252,6 +239,8 @@ $color4: #edf9fc;
     position: relative;
     height: 50dvh;
     overflow: hidden;
+    width: 920px;
+    left: calc(50% - 460px);
     #slide-left {
       position: absolute;
       left: 1rem;
@@ -261,6 +250,7 @@ $color4: #edf9fc;
       border: none;
       cursor: pointer;
       background-color: #53cde2;
+      z-index: 1;
       img {
         height: 2rem;
         width: 2rem;
@@ -268,10 +258,9 @@ $color4: #edf9fc;
       }
     }
     #slider {
-      width: 920px;
       position: relative;
-      left: calc(50% - 230px * 2);
       height: 50dvh;
+      transition: 0.2s;
       #cards {
         width: max-content;
         display: flex;
@@ -325,6 +314,7 @@ $color4: #edf9fc;
       border: none;
       cursor: pointer;
       background-color: #53cde2;
+      z-index: 1;
       img {
         height: 2rem;
         width: 2rem;
@@ -427,6 +417,39 @@ $color4: #edf9fc;
       display: flex;
       flex-direction: column;
       align-items: center;
+      &.ready-checkout{
+        background-color: #d1f4fa;
+        min-height: 85dvh;
+        *{
+          margin-block: 3px;
+        }
+        input[type='text']{
+          font-size: 20px;
+          padding: 3px;
+          outline: none;
+          border: 1px solid #ccc;
+          &:focus{
+            border: 2px solid #005792;
+          }
+        }       
+        #same{
+          display: flex;
+          align-items: center;
+          input[type="checkbox"]{
+            accent-color: $color1;
+            width: 20px;
+            height: 20px;
+          }
+        }
+        button{
+            font-size: 20px;
+            background-color: #005792;
+            color: white;
+            border: 1px solid #ccc;
+            padding: 3px 8px;
+            cursor: pointer;
+        }
+      }
       #info{
         display: flex;
         flex-direction: column;
@@ -593,7 +616,7 @@ aside {
       margin-bottom: 30px;
     }
     p{
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 700;
     }
     .item{
@@ -692,6 +715,7 @@ aside {
     background: none;
     border: none;
     cursor: pointer;
+    font-size: 16px;
   }
 }
 
@@ -740,6 +764,8 @@ aside {
       grid-template-columns: repeat(1,1fr);
     }
     #popular-items-slider {
+      width: 230px;
+      left: calc(50% - 115px);
       #slide-left {
         left: 0.25rem;
         top: calc(25dvh - 0.75rem);
@@ -759,8 +785,8 @@ aside {
         }
       }
       #slider {
-        width: 230px;
-        left: calc(50% - 230px * 0.5);
+       
+       
       }
     }
     #collection-layout{
@@ -923,9 +949,10 @@ aside {
       grid-template-columns: repeat(2,1fr);
     }
     #popular-items-slider {
+      width: 460px;
+      left: calc(50% - 230px);
       #slider {
-        width: 460px;
-        left: calc(50% - 230px * 1);
+      
       }
     }
     #collection-layout{
@@ -1070,9 +1097,10 @@ aside {
       grid-template-columns: repeat(2,1fr);
     }
     #popular-items-slider {
+      width: 460px;
+      left: calc(50% - 230px);
       #slider {
-        width: 460px;
-        left: calc(50% - 230px * 1);
+      
       }
     }
     #collection-layout{
@@ -1215,9 +1243,11 @@ aside {
       padding: 5px 3rem;
     }
     #popular-items-slider {
+      width: 690px;
+      left: calc(50% - 345px);
       #slider {
-        width: 690px;
-        left: calc(50% - 230px * 1.5);
+        
+     
       }
     }
     footer {
